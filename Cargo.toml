@@ -1,0 +1,16 @@
+[package]
+name = "sitch"
+version = "0.1.0"
+authors = ["Sam Mohr <sammohr97@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+chrono = { version = "0.4.6", features = ["serde"] }
+colored = "1.7"
+dirs = "1.0.5"
+reqwest = "0.9"
+rss = { version = "1.7.0", features = ["from_url"] }
+serde = "*"
+serde_derive = "*"
+serde_json = "1.0"
+structopt = "0.2"
