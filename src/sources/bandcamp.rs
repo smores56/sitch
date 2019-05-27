@@ -107,7 +107,7 @@ impl BandcampArtist {
 
         // in parallel, attempt to retrieve, parse, and then filter out
         // the first 10 albums on an artist's page to find updates
-        let mut recent_albums = recent_album_links
+        recent_album_links
             .into_par_iter()
             .filter_map(|link| {
                 // either load the page or return an error
@@ -158,10 +158,6 @@ impl BandcampArtist {
                     })?,
                 }))
             })
-            .collect::<Result<Vec<SourceUpdate>, String>>()?;
-
-        // sort the albums, as not all artists keep their albums ordered
-        recent_albums.sort_by_key(|update| update.published_date.clone());
-        Ok(recent_albums)
+            .collect()
     }
 }

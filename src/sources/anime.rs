@@ -79,7 +79,7 @@ impl Anime {
             .and_then(|episodes_obj| episodes_obj.as_array())
             .ok_or("Could not find episodes in received JSON")?;
 
-        let mut recent_episodes = episodes
+        Ok(episodes
             .iter()
             .filter_map(|episode| {
                 // parse the published date for each episode
@@ -117,13 +117,7 @@ impl Anime {
                     published_date,
                 })
             })
-            .collect::<Vec<SourceUpdate>>();
-
-        // sort the episodes by date as they aren't always
-        // returned in sorted order by the API
-        recent_episodes.sort_by_key(|update| update.published_date.clone());
-
-        Ok(recent_episodes)
+            .collect())
     }
 
     /// Search interactively for new anime to add to sitch.

@@ -83,7 +83,7 @@ impl Manga {
         //     "A Spiritually Transmitted Cold", - The chapter title
         //     "5bfe41ce719a167a5c3e2c98"        - The id (unused)
         // ],
-        let mut recent_chapters = chapters
+        Ok(chapters
             .iter()
             .filter_map(|chapter_obj| {
                 let chapter = chapter_obj.as_array()?;
@@ -111,12 +111,7 @@ impl Manga {
                     published_date,
                 })
             })
-            .collect::<Vec<SourceUpdate>>();
-
-        // sort the chapters as they aren't always returned in the right order
-        recent_chapters.sort_by_key(|update| update.published_date.clone());
-
-        Ok(recent_chapters)
+            .collect())
     }
 
     /// Search interactively for new manga to add to sitch.

@@ -159,7 +159,9 @@ impl Sources {
             })
             .for_each(
                 |(type_name, source_name, update_result)| match update_result {
-                    Ok(all_updates) => {
+                    Ok(mut all_updates) => {
+                        // sort by published date from most to least recent
+                        all_updates.sort_by_key(|update| update.published_date);
                         // if any updates occurred,
                         if all_updates.len() > 0 {
                             if !*(update_occurred.lock().unwrap()) {
