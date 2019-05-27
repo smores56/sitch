@@ -3,20 +3,23 @@ name = "sitch"
 version = "0.1.0"
 authors = ["Sam Mohr <sammohr97@gmail.com>"]
 edition = "2018"
+readme = "./README.md"
+repository = "https://www.github.com/smores56/sitch"
+description = "Sitch keeps you updated on what you follow"
+categories = ["command-line-utilities"]
+keywords = ["information", "web", "management"]
 
 [dependencies]
+atty = "0.2"
 chrono = { version = "0.4.6", features = ["serde"] }
-colored = "1.7"
+colored = "1.8"
 dirs = "1.0.5"
-google-gmail1 = "1.0"
-hyper = "0.10"
-hyper-rustls = "0.6"
+notify-rust = "3.6.0"
 rayon = "1.0"
 reqwest = "0.9"
 rss = { version = "1.7.0", features = ["from_url"] }
 select = "0.4.2"
-serde = "*"
-serde_derive = "*"
+serde = {version = "1.0.91", features = ["derive"] }
 serde_json = "1.0"
 structopt = "0.2"
-yup-oauth2 = "1.0"
+webbrowser = "0.5.1"
