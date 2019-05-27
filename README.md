@@ -4,8 +4,8 @@ Sitch keeps you updated on what you follow. It currently
 supports the following sources:
 - YouTube channels
 - RSS feeds
-- Anime (myanimelist.net via Jikan)
-- Manga (mangaeden.net API)
+- Anime ([myanimelist.net](https://myanimelist.net/) via Jikan)
+- Manga ([mangaeden.com](https://www.mangaeden.com/eng/)) API)
 - Bandcamp artists
 
 Sitch is written in [Rust](https://www.rust-lang.org/) (stable).
